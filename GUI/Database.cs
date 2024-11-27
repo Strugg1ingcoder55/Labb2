@@ -131,7 +131,42 @@ namespace GUI
             station2.AntalFordon = 5;
             #endregion
 
+            #region HyrningS
+            Hyrning hyrnings = new Hyrning();
+            hyrnings.Fordonstillgänglighet = true;
+            hyrnings.Hyrtid = 4.5;
+            hyrnings.Hyrkostnad = 5;
 
+            #endregion
+
+            #region HyrningF
+            Hyrning hyrningf = new Hyrning();
+            hyrningf.Fordonstillgänglighet = false;
+            hyrningf.Hyrtid = 4.5;
+            hyrningf.Hyrkostnad = 5;
+
+            #endregion
+
+            #region Stationer och Fordon lista
+            station1.Fordon.Add(fordon1);
+            fordon1.Stationer = station1;
+            station1.Fordon.Add(fordon4);
+            fordon4.Stationer = station1;
+            station1.Fordon.Add(fordon7);
+            fordon7.Stationer = station1;
+
+            station2.Fordon.Add(fordon2);
+            fordon2.Stationer = station2;
+            station2.Fordon.Add(fordon3);
+            fordon3.Stationer = station2;
+            station2.Fordon.Add(fordon5);
+            fordon5.Stationer = station2;
+            station2.Fordon.Add(fordon6);
+            fordon6.Stationer = station2;
+            station2.Fordon.Add(fordon8);
+            fordon8.Stationer = station2;
+
+            #endregion
         }
     }
 }
