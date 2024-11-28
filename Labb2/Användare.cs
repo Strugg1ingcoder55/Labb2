@@ -21,5 +21,7 @@ namespace Labb2
         public Fordon Fordon;
         public Hyrning Hyrning;
 
+      
+
     }
 }

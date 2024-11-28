@@ -15,9 +15,9 @@ namespace Labb2
         //public int AnvändbaraFordon;
         //Gör användbara fordon till en metod istället
 
-        public List<Fordon> Fordon;
+        public List<Fordon> Fordon = new List<Fordon>();
 
-
+        
         //public List<Användare> Användare;
         //En funktion som ser skillnaden mellan AntalFordon och AnvändbaraFordon för att se vilka fordon
         //som är otillgängliga

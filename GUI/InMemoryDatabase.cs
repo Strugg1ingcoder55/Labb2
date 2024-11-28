@@ -7,7 +7,7 @@ using Labb2;
 
 namespace GUI
 {
-     class Database
+     internal class InMemoryDatabase
     {
         internal List<Användare> användares = new List<Användare>();
         internal List<Fordon> fordons = new List<Fordon>();
@@ -25,7 +25,7 @@ namespace GUI
             användare1.Hyreshistorik = 2;
             användare1.IsAdmin = false;
 
-
+            användares.Add(användare1);
             #endregion
 
             #region Användare 2
@@ -37,6 +37,7 @@ namespace GUI
             användare2.Hyreshistorik = 5;
             användare2.IsAdmin = false;
 
+            användares.Add(användare2);
             #endregion
 
             #region Användare 3
@@ -48,6 +49,7 @@ namespace GUI
             användare3.Hyreshistorik = 10;
             användare3.IsAdmin = true;
 
+            användares.Add(användare3);
             #endregion
 
 
@@ -57,6 +59,8 @@ namespace GUI
             fordon1.FordonsTyp = "Elscooter";
             fordon1.BatteriStatus = "Hög";
             fordon1.FordonsStatus = true;
+
+            fordons.Add(fordon1);
             #endregion
 
             #region Fordon2
@@ -65,6 +69,8 @@ namespace GUI
             fordon2.FordonsTyp = "Elscooter";
             fordon2.BatteriStatus = "Medel";
             fordon2.FordonsStatus = true;
+
+            fordons.Add(fordon2);
             #endregion
 
             #region Fordon3
@@ -73,6 +79,8 @@ namespace GUI
             fordon3.FordonsTyp = "Elscooter";
             fordon3.BatteriStatus = "Låg";
             fordon3.FordonsStatus = true;
+
+            fordons.Add(fordon3);
             #endregion
 
             #region Fordon4
@@ -81,6 +89,8 @@ namespace GUI
             fordon4.FordonsTyp = "Elscooter";
             fordon4.BatteriStatus = "Urladdad";
             fordon4.FordonsStatus = false;
+
+            fordons.Add(fordon4);
             #endregion
 
             #region Fordon5
@@ -89,6 +99,8 @@ namespace GUI
             fordon5.FordonsTyp = "Elsparkcykel";
             fordon5.BatteriStatus = "Hög";
             fordon5.FordonsStatus = true;
+
+            fordons.Add(fordon5);
             #endregion
 
             #region Fordon6
@@ -97,6 +109,8 @@ namespace GUI
             fordon6.FordonsTyp = "Elsparkcykel";
             fordon6.BatteriStatus = "Medel";
             fordon6.FordonsStatus = true;
+
+            fordons.Add(fordon6);
             #endregion
 
             #region Fordon7
@@ -105,6 +119,8 @@ namespace GUI
             fordon7.FordonsTyp = "Elsparkcykel";
             fordon7.BatteriStatus = "Låg";
             fordon7.FordonsStatus = true;
+
+            fordons.Add(fordon7);
             #endregion
 
             #region Fordon8
@@ -113,6 +129,8 @@ namespace GUI
             fordon8.FordonsTyp = "Elsparkcykel";
             fordon8.BatteriStatus = "Urladdad";
             fordon8.FordonsStatus = false;
+
+            fordons.Add(fordon8);
             #endregion
 
             #region Station1
@@ -121,7 +139,7 @@ namespace GUI
             station1.Storlek = "Mellan";
             station1.AntalFordon = 3;
 
-
+            station.Add(station1);
             #endregion
 
             #region Station2
@@ -129,6 +147,8 @@ namespace GUI
             station2.Plats = "Göteborg";
             station2.Storlek = "Stor";
             station2.AntalFordon = 5;
+
+            station.Add(station2 );
             #endregion
 
             #region HyrningS
@@ -137,6 +157,7 @@ namespace GUI
             hyrnings.Hyrtid = 4.5;
             hyrnings.Hyrkostnad = 5;
 
+            hyrning.Add(hyrnings);
             #endregion
 
             #region HyrningF
@@ -145,6 +166,7 @@ namespace GUI
             hyrningf.Hyrtid = 4.5;
             hyrningf.Hyrkostnad = 5;
 
+            hyrning.Add(hyrningf);
             #endregion
 
             #region Stationer och Fordon lista

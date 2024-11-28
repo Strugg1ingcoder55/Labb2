@@ -16,5 +16,10 @@ namespace Labb2
         public Användare Användare;
         public Stationer Stationer;
 
+        public int TotalaFordon()
+        {
+            return 0;
+        }
+
     }
 }
