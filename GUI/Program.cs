@@ -58,8 +58,8 @@ namespace GUI
                 Console.WriteLine(Användare.AnvändarID + " " + Användare.Namn);
             }
             Console.WriteLine("");
-            Console.WriteLine("Välj användare!");
-            Console.WriteLine("Välj något av ovanstående alternativ: 1,2 eller 3");
+            Console.WriteLine("Välj användare eller tryck på någon siffra som inte är 1-3 för att komma tillbaka!");
+            
 
             int input = Validation.AskForInteger();
 
