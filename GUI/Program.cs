@@ -165,6 +165,7 @@ namespace GUI
                     {
                         if (Fordon.FordonsStatus == true && Station.Plats == "Göteborg")
                         {
+                            //Fordonet visar bara 1 id; varför??
                             Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus);
                             Console.WriteLine("Skriv id:et till fordonet du vill hyra!");
                             Console.WriteLine("2. Elscooter");
