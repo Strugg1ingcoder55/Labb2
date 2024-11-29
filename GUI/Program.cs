@@ -63,13 +63,13 @@ namespace GUI
 
             int input = Validation.AskForInteger();
 
-            if (input >= 2)
+            if (input == 1 || input == 2)
             {
-                
+                AnvändarUI();
             }
             else if (input == 3)
             {
-                
+                AdminUI();
             }
             else
             {
@@ -78,6 +78,14 @@ namespace GUI
             }
             Console.ReadLine();
 
+        }
+        private static void AnvändarUI()
+        {
+
+        }
+        private static void AdminUI()
+        {
+            
         }
     }
 }
