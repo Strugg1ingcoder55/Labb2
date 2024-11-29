@@ -33,7 +33,7 @@ namespace GUI
             användare2.AnvändarID = 2;
             användare2.Namn = "Jans Svensson";
             användare2.Email = "Jans.svensson99@gmail.com";
-            användare2.Betalningsmetod = "BankID";
+            användare2.Betalningsmetod = "Kontanter";
             användare2.Hyreshistorik = 5;
             användare2.IsAdmin = false;
 
@@ -170,6 +170,7 @@ namespace GUI
             #endregion
 
             #region Stationer och Fordon lista
+            //Station 1 är i Borås
             station1.Fordon.Add(fordon1);
             fordon1.Stationer = station1;
             station1.Fordon.Add(fordon4);
@@ -177,6 +178,8 @@ namespace GUI
             station1.Fordon.Add(fordon7);
             fordon7.Stationer = station1;
 
+
+            //Station 2 är i Göteborg
             station2.Fordon.Add(fordon2);
             fordon2.Stationer = station2;
             station2.Fordon.Add(fordon3);
