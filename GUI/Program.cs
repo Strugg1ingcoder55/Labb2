@@ -32,6 +32,7 @@ namespace GUI
             if (input == 1)
             {
                 VäljAnvändare();
+
             }
             else if (input == 2)
             {
@@ -295,10 +296,10 @@ namespace GUI
                         Console.WriteLine();
                     }
                 }
-                    }
+            }
             else if (input == 2)
             {
-                
+
             }
             else
             {
