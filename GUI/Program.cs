@@ -299,7 +299,7 @@ namespace GUI
             }
             else if (input == 2)
             {
-
+                Console.WriteLine("Ska vara helt ärlig har ingen aning på hur man lägger till det här just nu, tror det är bättre om vi fokuserar på winforms och arbetar på det här på onsdag");    
             }
             else
             {
