@@ -293,7 +293,7 @@ namespace GUI
                 {
                     foreach (Fordon Fordon in Station.Fordon)
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus );
                     }
                 }
             }
