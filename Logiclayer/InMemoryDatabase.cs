@@ -8,14 +8,14 @@ using Labb2;
 namespace Logiclayer
 {
     //Kan vi inte nå databasen för det är internal class, inte public?
-    internal class InMemoryDatabase
+    public class InMemoryDatabase
     {
-        internal List<Användare> användares = new List<Användare>();
-        internal List<Fordon> fordons = new List<Fordon>();
-        internal List<Stationer> station = new List<Stationer>();
-        internal List<Hyrning> hyrning = new List<Hyrning>();
+        public List<Användare> användares = new List<Användare>();
+        public List<Fordon> fordons = new List<Fordon>();
+        public List<Stationer> station = new List<Stationer>();
+        public List<Hyrning> hyrning = new List<Hyrning>();
 
-        internal void Seed()
+        public void Seed()
         {
             #region Användare1
             Användare användare1 = new Användare();

@@ -10,9 +10,10 @@ using Logiclayer;
 
 namespace GUI
 {
+
     class Program
     {
-        private InMemoryDatabase InMemoryDatabase = new InMemoryDatabase();
+        InMemoryDatabase InMemoryDatabase = new InMemoryDatabase();
         private static Validation Validation = new Validation();
         static void Main(string[] args)
         {
