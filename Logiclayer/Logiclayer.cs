@@ -10,6 +10,21 @@ namespace Logiclayer
 {
     public class Logiclayer
     {
-        private InMemoryDatabase inMemoryDatabase;
+        private InMemoryDatabase InMemoryDatabase = new InMemoryDatabase();
+
+      
+        public ICollection<Fordon> GetFordon()
+        {
+            return InMemoryDatabase.fordons;
+        }
+
+        public void Addfordon(Fordon fordon)
+        {
+            InMemoryDatabase.fordons.Add(fordon);
+        }
+        public void Removefordon(Fordon fordon)
+        {
+            InMemoryDatabase.fordons.Remove(fordon);
+        }
     }
 }

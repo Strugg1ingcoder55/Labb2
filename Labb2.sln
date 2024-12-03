@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logiclayer", "Logiclayer\Logiclayer.csproj", "{4B337CF1-0D2E-42D3-AD6A-25CE3838D018}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsGUI", "WinformsGUI\WinformsGUI.csproj", "{2AE2BB04-F87B-46B2-B10B-31F5DB8BB60D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,15 @@ Global
 		{4B337CF1-0D2E-42D3-AD6A-25CE3838D018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B337CF1-0D2E-42D3-AD6A-25CE3838D018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B337CF1-0D2E-42D3-AD6A-25CE3838D018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE2BB04-F87B-46B2-B10B-31F5DB8BB60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE2BB04-F87B-46B2-B10B-31F5DB8BB60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE2BB04-F87B-46B2-B10B-31F5DB8BB60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE2BB04-F87B-46B2-B10B-31F5DB8BB60D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71C2EA95-1C22-4EEC-B310-0FCD3BFE8B58}
 	EndGlobalSection
 EndGlobal
