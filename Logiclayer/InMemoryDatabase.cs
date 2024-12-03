@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Labb2;
 
-namespace GUI
+namespace Logiclayer
 {
     internal class InMemoryDatabase
     {

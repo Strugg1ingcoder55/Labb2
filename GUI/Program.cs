@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Labb2;
-using static System.Collections.Specialized.BitVector32;
+using Logiclayer;
+//Logiclayer kopplas inte, 
 
 namespace GUI
 {
     class Program
     {
-        private static InMemoryDatabase Database = new InMemoryDatabase();
+       
         private static Validation Validation = new Validation();
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace GUI
         {
             Console.Clear();
             Console.WriteLine("Välj vad du vill göra");
-            Console.WriteLine("1. Visa användare");
+            Console.WriteLine("1. Välj användare");
             Console.WriteLine("2. Avsluta programmet");
 
             Console.WriteLine("Välj något av ovanstående alternativ: 1 eller 2");
@@ -41,31 +41,24 @@ namespace GUI
                 AvslutaMeny();
             }
             else
-            
+            {
                 FelVal();
                 Meny();
-            
+            }
         }
-        public static void AvslutaMeny()
+        private static void AvslutaMeny()
         {
-            Environment.Exit(0); //Programmet stängs ner när man trycker 2
+            Environment.Exit(500);
         }
-        public static void FelVal()
+        private static void FelVal()
         {
-            Console.WriteLine("Det alternativet finns inte, välj 1 eller 2"); //
+            Console.WriteLine("Det alternativet finns inte, välj 1-2");
         }
-        
-        
-        
-        public static void VisaAnvändare()
+        private static void VäljAnvändare()
         {
             foreach (Användare Användare in Database.användares)
             {
-                /*Visa användare*/
-
-                Console.WriteLine(Användare.AnvändarID); //Visar alla AnvändarID:n när man trycker 1
-
-
+                Console.WriteLine(Användare.AnvändarID + " " + Användare.Namn);
             }
             Console.WriteLine("");
             Console.WriteLine("Välj användare eller tryck på någon siffra som inte är 1-3 för att komma tillbaka!");
@@ -89,8 +82,7 @@ namespace GUI
             Console.ReadLine();
 
         }
-
-        private static void AdminUI()
+        private static void AnvändarUI()
         {
             Console.Clear();
 
@@ -105,31 +97,41 @@ namespace GUI
             int input = Validation.AskForInteger();
             if (input == 1)
             {
-                Console.WriteLine("Du är i Borås"); //Steg 1 
-
-
-                    foreach (Stationer Station in Database.station)
+                Console.WriteLine("Du är i Borås");
+                foreach (Stationer Station in Database.station)
+                {
+                    foreach (Fordon Fordon in Station.Fordon)
                     {
-                        foreach (Fordon fordon in Database.fordons)
-
+                        if (Fordon.FordonsStatus == true && Station.Plats == "Borås")
                         {
-                            Console.WriteLine("I Borås finns det följande fordon att välja mellan: ");
-
+                            Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus);
+                            Console.WriteLine("Skriv id:et till fordonet du vill hyra!");
                             Console.WriteLine("1. Elscooter");
                             Console.WriteLine("7. Elsparkcykel");
-
-                            
-
                             int inputt = Validation.AskForInteger();
-
-
-
-                            if (Fordon.FordonsStatus == true && Fordon.BatteriStatus == "Hög" && Station.Plats == "Borås")
+                            if (inputt == 1)
                             {
-                                VisaTillgängligaScootrar();
-                            }
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(1000);
+                                        }
+                                        //Den kommer aldrig hit andå när vi använder våran användare 2 som har betalningsmetod = kontanter
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
 
-                            else if (input == 7 && Fordons.FordonsStatus == true && Fordon.BatteriStatus == "Hög" && Station.Plats == "Borås" && Fordon.FordonsTyp == "Elscooter")
+                                        }
+                                    }
+                                }
+                            }
+                            else if (inputt == 7)
                             {
                                 Console.WriteLine("");
                                 foreach (Användare Användare in Database.användares)
@@ -293,13 +295,13 @@ namespace GUI
                 {
                     foreach (Fordon Fordon in Station.Fordon)
                     {
-                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus );
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
                     }
                 }
             }
             else if (input == 2)
             {
-                Console.WriteLine("Ska vara helt ärlig har ingen aning på hur man lägger till det här just nu, tror det är bättre om vi fokuserar på winforms och arbetar på det här på onsdag");    
+                Console.WriteLine("Ska vara helt ärlig har ingen aning på hur man lägger till det här just nu, tror det är bättre om vi fokuserar på winforms och arbetar på det här på onsdag");
             }
             else
             {
