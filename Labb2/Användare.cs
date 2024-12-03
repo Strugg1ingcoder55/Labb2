@@ -10,18 +10,15 @@ namespace Labb2
     {
         //registrera sig
         //logga in
-        public int AnvändarID;
+        public string AnvändarID; 
         public string Namn;
         public string Email;
         public int TelefonNr;
+        public bool IsAdmin;
         public string Betalningsmetod;
         public int Hyreshistorik;
-        public bool IsAdmin;
 
         public Fordon Fordon;
         public Hyrning Hyrning;
-
-      
-
     }
 }

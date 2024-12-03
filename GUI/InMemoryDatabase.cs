@@ -18,7 +18,7 @@ namespace GUI
         {
             #region Användare1
             Användare användare1 = new Användare();
-            användare1.AnvändarID = 1;
+            användare1.AnvändarID = "Kund 1"; 
             användare1.Namn = "Oscar Norén";
             användare1.Email = "oscar.noren02@gmail.com";
             användare1.Betalningsmetod = "Swish";
@@ -30,7 +30,7 @@ namespace GUI
 
             #region Användare 2
             Användare användare2 = new Användare();
-            användare2.AnvändarID = 2;
+            användare2.AnvändarID = "Kund 2";
             användare2.Namn = "Jans Svensson";
             användare2.Email = "Jans.svensson99@gmail.com";
             användare2.Betalningsmetod = "Kontanter";
@@ -42,8 +42,8 @@ namespace GUI
 
             #region Användare 3
             Användare användare3 = new Användare();
-            användare3.AnvändarID = 3;
-            användare3.Namn = "S2106104";
+            användare3.AnvändarID = "Admin";
+            användare3.Namn = "Admin";
             användare3.Email = "S2106104@gmail.com";
             användare3.Betalningsmetod = "Swish";
             användare3.Hyreshistorik = 10;
@@ -177,6 +177,7 @@ namespace GUI
             fordon4.Stationer = station1;
             station1.Fordon.Add(fordon7);
             fordon7.Stationer = station1;
+      
 
 
             //Station 2 är i Göteborg
@@ -191,6 +192,9 @@ namespace GUI
             station2.Fordon.Add(fordon8);
             fordon8.Stationer = station2;
 
+            #endregion
+
+            #region connecting objects
             #endregion
         }
     }
