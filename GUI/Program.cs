@@ -32,13 +32,14 @@ namespace GUI
             int input = Validation.AskForInteger();
 
             if (input == 1)
-            
-                VisaAnvändare(); 
-            
+            {
+                VäljAnvändare();
+
+            }
             else if (input == 2)
-            
-                AvslutaMeny(); 
-            
+            {
+                AvslutaMeny();
+            }
             else
             
                 FelVal();
@@ -58,7 +59,7 @@ namespace GUI
         
         public static void VisaAnvändare()
         {
-            foreach(Användare Användare in Database.användares)
+            foreach (Användare Användare in Database.användares)
             {
                 /*Visa användare*/
 
@@ -67,10 +68,7 @@ namespace GUI
 
             }
             Console.WriteLine("");
-            Console.WriteLine("Tryck 1 för kund 1");
-            Console.WriteLine("Tryck 2 för kund 2");
-            Console.WriteLine("Tryck 3 för Admin");
-            Console.WriteLine("Tryck på någon siffra som inte är 1-3 för att komma tillbaka!");
+            Console.WriteLine("Välj användare eller tryck på någon siffra som inte är 1-3 för att komma tillbaka!");
 
 
             int input = Validation.AskForInteger();
@@ -94,21 +92,15 @@ namespace GUI
 
         private static void AdminUI()
         {
-            throw new NotImplementedException();
-        }
+            Console.Clear();
 
-        private static void AnvändarUI() //Vad som händer efter man har tryckt 1.Användare
-        {
-            foreach (Stationer stationer in Database.station)
+            foreach (Stationer Station in Database.station)
             {
-                Console.WriteLine("Välj vilken stad du vill hyra ifrån! ");
-                Console.WriteLine(stationer.Plats);
+                Console.WriteLine("Stationern finns i " + Station.Plats + " och har storleken " + Station.Storlek + " " + "med antalet " + Station.AntalFordon + " fordon");
             }
-
-                 Console.WriteLine("");
-            { 
-                Console.Clear();
-
+            Console.WriteLine("Välj stad! ");
+            Console.WriteLine("1. Borås");
+            Console.WriteLine("2. Göteborg");
 
             int input = Validation.AskForInteger();
             if (input == 1)
@@ -139,36 +131,181 @@ namespace GUI
 
                             else if (input == 7 && Fordons.FordonsStatus == true && Fordon.BatteriStatus == "Hög" && Station.Plats == "Borås" && Fordon.FordonsTyp == "Elscooter")
                             {
-                                VisaTillgängligaSparkcyklar();
+                                Console.WriteLine("");
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(10000);
+                                        }
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
+
+                                        }
+                                    }
+                                }
                             }
-                            else
-                            {
-                                FelVal();
-                                Meny();
-                            }
-                            Console.ReadLine();
                         }
                     }
-private static void VisaTillgängligaScootrar()
+                }
+            }
+
+
+            else if (input == 2)
+            {
+                Console.WriteLine("Du är i Göteborg");
+                foreach (Stationer Station in Database.station)
+                {
+                    foreach (Fordon Fordon in Station.Fordon)
+                    {
+                        if (Fordon.FordonsStatus == true && Station.Plats == "Göteborg")
+                        {
+                            //Fordonet visar bara 1 id; varför??
+                            Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus);
+                            Console.WriteLine("Skriv id:et till fordonet du vill hyra!");
+                            Console.WriteLine("2. Elscooter");
+                            Console.WriteLine("3. Elscooter");
+                            Console.WriteLine("5. Elsparkcykel");
+                            Console.WriteLine("6. Elsparkcykel");
+                            int inputt = Validation.AskForInteger();
+                            if (inputt == 2)
+                            {
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(1000);
+                                        }
+                                        //Den kommer aldrig hit andå när vi använder våran användare 2 som har betalningsmetod = kontanter
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
+
+                                        }
+                                    }
+                                }
+                            }
+                            else if (inputt == 3)
+                            {
+                                Console.WriteLine("");
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(10000);
+                                        }
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
+
+                                        }
+                                    }
+                                }
+                            }
+
+                            else if (inputt == 5)
+                            {
+                                Console.WriteLine("");
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(10000);
+                                        }
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
+
+                                        }
+                                    }
+                                }
+                            }
+                            else if (inputt == 6)
+                            {
+                                Console.WriteLine("");
+                                foreach (Användare Användare in Database.användares)
+                                {
+                                    foreach (Hyrning Hyrning in Database.hyrning)
+                                    {
+                                        if (Användare.Betalningsmetod == "Swish")
+                                        {
+                                            Console.WriteLine("Du har valt " + Fordon.FordonsID + "  " + Fordon.FordonsTyp + " och du betalar med " + Användare.Betalningsmetod + " och den har hyrtiden " + Hyrning.Hyrtid + " per minut och kostar " + Hyrning.Hyrkostnad + " kr.");
+                                            Console.WriteLine("Tack för ditt köp!");
+                                            Environment.Exit(10000);
+                                        }
+                                        else if (Användare.Betalningsmetod == "Kontanter")
+                                        {
+                                            Console.WriteLine("Tyvärr men vi acceptar inte " + Användare.Betalningsmetod + " byt till en annan betalningsmetod nästa gång!");
+                                            Environment.Exit(1000);
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                FelVal();
+                AnvändarUI();
+            }
+            Console.ReadLine();
+
+        }
+        private static void AdminUI()
         {
-            Console.WriteLine(Fordon.FordonsID);
+            Console.Clear();
+            Console.WriteLine("Välkommen Admin! Vad vill du göra?");
+            Console.WriteLine("1. Visa fordons lista");
+            Console.WriteLine("2. Ta bort trasigt fordon");
+            Console.WriteLine("Välj mellan 1 och 2");
+            Console.WriteLine("");
+            int input = Validation.AskForInteger();
+
+            if (input == 1)
+            {
+                Console.WriteLine("Du har valt 1) visa fordons lista!");
+                foreach (Stationer Station in Database.station)
+                {
+                    foreach (Fordon Fordon in Station.Fordon)
+                    {
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus );
+                    }
+                }
+            }
+            else if (input == 2)
+            {
+                Console.WriteLine("Ska vara helt ärlig har ingen aning på hur man lägger till det här just nu, tror det är bättre om vi fokuserar på winforms och arbetar på det här på onsdag");    
+            }
+            else
+            {
+                FelVal();
+                Meny();
+            }
         }
     }
-private static void VisaTillgängligaSparkcyklar()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-
-
-
-                        
-        
-
-
-       
-        
-    
-
-
+}

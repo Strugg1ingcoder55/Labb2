@@ -7,7 +7,7 @@ using Labb2;
 
 namespace GUI
 {
-     internal class InMemoryDatabase
+    internal class InMemoryDatabase
     {
         internal List<Användare> användares = new List<Användare>();
         internal List<Fordon> fordons = new List<Fordon>();
@@ -148,7 +148,7 @@ namespace GUI
             station2.Storlek = "Stor";
             station2.AntalFordon = 5;
 
-            station.Add(station2 );
+            station.Add(station2);
             #endregion
 
             #region HyrningS
