@@ -10,10 +10,10 @@ namespace Logiclayer
     //Kan vi inte nå databasen för det är internal class, inte public?
     public class InMemoryDatabase //från börjam var allt internal
     {
-        public List<Användare> användares = new List<Användare>();
-        public List<Fordon> fordons = new List<Fordon>();
-        public List<Stationer> station = new List<Stationer>();
-        public List<Hyrning> hyrning = new List<Hyrning>();
+        public List<Användare> användares { get; set; } = new List<Användare>();
+        public List<Fordon> fordons { get; set; } = new List<Fordon>();
+        public List<Stationer> station { get; set; } = new List<Stationer>();
+        public List<Hyrning> hyrning { get; set; } = new List<Hyrning>();
 
         public void Seed()
         {
@@ -43,7 +43,7 @@ namespace Logiclayer
 
             #region Användare 3
             Användare användare3 = new Användare();
-            användare3.AnvändarID = "Admin";
+            användare3.AnvändarID = "Admin 1";
             användare3.Namn = "Admin";
             användare3.Email = "S2106104@gmail.com";
             användare3.Betalningsmetod = "Swish";

@@ -25,5 +25,11 @@
             }
             return result;
         }
+        internal string AskForString()
+        {
+            string input = Console.ReadLine();
+
+            return input;
+        }
     }
 }

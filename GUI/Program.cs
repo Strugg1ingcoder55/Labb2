@@ -13,7 +13,9 @@ namespace GUI
 
     class Program
     {
-        InMemoryDatabase InMemoryDatabase = new InMemoryDatabase();
+        
+        private static InMemoryDatabase Database = new InMemoryDatabase();
+        
         private static Validation Validation = new Validation();
         static void Main(string[] args)
         {
@@ -109,6 +111,7 @@ namespace GUI
                             Console.WriteLine("Skriv id:et till fordonet du vill hyra!");
                             Console.WriteLine("1. Elscooter");
                             Console.WriteLine("7. Elsparkcykel");
+                            //Koden loopar inte på grund av denna int
                             int inputt = Validation.AskForInteger();
                             if (inputt == 1)
                             {
@@ -281,34 +284,103 @@ namespace GUI
         }
         private static void AdminUI()
         {
-            Console.Clear();
+            Console.WriteLine("");
             Console.WriteLine("Välkommen Admin! Vad vill du göra?");
             Console.WriteLine("1. Visa fordons lista");
-            Console.WriteLine("2. Ta bort trasigt fordon");
-            Console.WriteLine("Välj mellan 1 och 2");
+            Console.WriteLine("2. Ta bort trasiga fordon");
+            Console.WriteLine("3. Lägga till fordon");
+            Console.WriteLine("Välj mellan 1-3");
             Console.WriteLine("");
             int input = Validation.AskForInteger();
 
             if (input == 1)
             {
                 Console.WriteLine("Du har valt 1) visa fordons lista!");
-                foreach (Stationer Station in Database.station)
-                {
-                    foreach (Fordon Fordon in Station.Fordon)
-                    {
-                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
-                    }
-                }
+                VisaFordonslista();
+
             }
             else if (input == 2)
             {
-                Console.WriteLine("Ska vara helt ärlig har ingen aning på hur man lägger till det här just nu, tror det är bättre om vi fokuserar på winforms och arbetar på det här på onsdag");
+                Console.WriteLine("Du har valt 2) ta bort trasiga fordon!");
+                TaBortFordon();
+               
+            }
+            else if (input == 3)
+            {
+                Console.WriteLine("Du har valt 3) lägga till fordon");
             }
             else
             {
                 FelVal();
                 Meny();
             }
+        }
+
+        private static void VisaFordonslista()
+        {
+           
+            foreach (Stationer Station in Database.station)
+            {
+                foreach (Fordon Fordon in Station.Fordon)
+                {
+                    Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
+
+                   
+                }
+            }
+
+            AdminUI();
+        }
+        private static void TaBortFordon()
+        {
+            Fordon bortfordon = new Fordon();
+            Console.Clear();
+            foreach (Stationer Station in Database.station)
+            {
+                foreach (Fordon Fordon in Station.Fordon)
+                {
+                    if (Fordon.FordonsStatus == false)
+                    {
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
+                    }
+
+                }
+            }
+            Console.WriteLine("Välj vilket fordon du vill ta bort!");
+            Console.WriteLine("4. Elscooter");
+            Console.WriteLine("8. Elsparkcykel");
+            int inputt = Validation.AskForInteger();
+            if (inputt == 4)
+            {
+                bortfordon =  Database.fordons.Where(Fordon => Fordon.FordonsID == 4).First();
+                Console.WriteLine("Du har tagit bort 4. Elscooter");
+                
+                Database.fordons.Remove(bortfordon);
+                //Fordonet borttagning blir inte uppdaterat till foreach satsen där nere sök upp
+            //    var update = Database.fordons.Remove(Fordon => Database.fordons.Where(F => F.FordonsID == 4).First() == Fordon);
+                foreach (Stationer Station in Database.station) 
+                {
+                    foreach (Fordon Fordon in Station.Fordon)
+                    {
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
+
+
+                    }
+                }
+
+
+            }
+            else if (inputt == 8)
+            {
+                Console.WriteLine("Du har tagit bort 8. Elsparkcykel");
+                Database.fordons.Remove(bortfordon);
+
+
+            }
+        }
+        private static void LäggaTillFordon()
+        {
+            Console.Clear();
         }
     }
 }
