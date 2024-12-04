@@ -356,8 +356,8 @@ namespace GUI
                 Console.WriteLine("Du har tagit bort 4. Elscooter");
                 
                 Database.fordons.Remove(bortfordon);
-                //Fordonet borttagning blir inte uppdaterat till foreach satsen där nere sök upp
-            //    var update = Database.fordons.Remove(Fordon => Database.fordons.Where(F => F.FordonsID == 4).First() == Fordon);
+                //Fordonet borttagning blir inte uppdaterat till foreach satsen där nere sök upp, titta på ai-tjänsten Claude med hjälp av kod, annars github co-pilot
+               // var update = Database.fordons.Remove(F => F.FordonsID == 4);
                 foreach (Stationer Station in Database.station) 
                 {
                     foreach (Fordon Fordon in Station.Fordon)
