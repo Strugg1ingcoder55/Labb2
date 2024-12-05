@@ -179,6 +179,7 @@ namespace GUI
                             Console.WriteLine("3. Elscooter");
                             Console.WriteLine("5. Elsparkcykel");
                             Console.WriteLine("6. Elsparkcykel");
+
                             int inputt = Validation.AskForInteger();
                             if (inputt == 2)
                             {
@@ -308,6 +309,7 @@ namespace GUI
             else if (input == 3)
             {
                 Console.WriteLine("Du har valt 3) lägga till fordon");
+                LäggaTillFordon();
             }
             else
             {
@@ -381,6 +383,9 @@ namespace GUI
         private static void LäggaTillFordon()
         {
             Console.Clear();
+            
+            Fordon Läggatillfordon = new Fordon();
+
         }
     }
 }
