@@ -407,6 +407,16 @@ namespace GUI
             //Console.WriteLine("");
             //Console.WriteLine("Är din ");
             //Är det bara att göra en AskForBool här eller?
+            Database.fordon.Add(Läggatillfordon);
+
+             foreach (Fordon Fordon in Database.fordons)
+                    {
+                        Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
+
+
+                    }
+                
+
 
         }
     }
