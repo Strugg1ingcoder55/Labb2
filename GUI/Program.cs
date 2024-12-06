@@ -382,9 +382,31 @@ namespace GUI
         }
         private static void LäggaTillFordon()
         {
-            Console.Clear();
             
             Fordon Läggatillfordon = new Fordon();
+            Console.WriteLine("");
+            Console.WriteLine("Skriv ID:");
+            Läggatillfordon.FordonsID = Validation.AskForInteger();
+            if (Läggatillfordon.FordonsID < 8)
+            {
+                Console.WriteLine("Det här id:et finns redan välj något nytt!");
+                LäggaTillFordon();
+            }
+            else
+            {
+                Console.WriteLine("ID:et har blivit accepterat!");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Vad för typ är ditt fordon, Elscooter eller Elsparkcykel?");
+            Läggatillfordon.FordonsTyp = Validation.AskForString();
+
+            Console.WriteLine("");
+            Console.WriteLine("Är ditt batteri låg, mellan eller hög?");
+            Läggatillfordon.BatteriStatus = Validation.AskForString();
+
+            //Console.WriteLine("");
+            //Console.WriteLine("Är din ");
+            //Är det bara att göra en AskForBool här eller?
 
         }
     }
