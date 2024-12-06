@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Labb2;
+﻿using Labb2;
 
 namespace Logiclayer
 {
-    public class Logiclayer
+    public class LogicService
     {
         private InMemoryDatabase InMemoryDatabase = new InMemoryDatabase();
 
       
-        public ICollection<Fordon> GetFordon()
+        public List<Fordon> GetFordon()
         {
             return InMemoryDatabase.fordons;
         }
@@ -25,6 +19,10 @@ namespace Logiclayer
         public void Removefordon(Fordon fordon)
         {
             InMemoryDatabase.fordons.Remove(fordon);
+        }
+        public void Seed()
+        {
+            InMemoryDatabase.Seed();
         }
     }
 }

@@ -116,7 +116,7 @@ namespace GUI
                             if (inputt == 1)
                             {
                                 foreach (Användare Användare in Database.användares)
-                                {
+                                { //Funkar inte, den kommer aldrig till Kontanter, får fixa det någon annan gång
                                     foreach (Hyrning Hyrning in Database.hyrning)
                                     {
                                         if (Användare.Betalningsmetod == "Swish")
@@ -387,7 +387,7 @@ namespace GUI
             Console.WriteLine("");
             Console.WriteLine("Skriv ID:");
             Läggatillfordon.FordonsID = Validation.AskForInteger();
-            if (Läggatillfordon.FordonsID < 8)
+            if (Läggatillfordon.FordonsID < 9)
             {
                 Console.WriteLine("Det här id:et finns redan välj något nytt!");
                 LäggaTillFordon();
@@ -407,14 +407,14 @@ namespace GUI
             //Console.WriteLine("");
             //Console.WriteLine("Är din ");
             //Är det bara att göra en AskForBool här eller?
-            Database.fordon.Add(Läggatillfordon);
-
+            Database.fordons.Add(Läggatillfordon);
+            //Fordonet läggs inte till i listan, samma problem som i ta bort fordon
              foreach (Fordon Fordon in Database.fordons)
                     {
                         Console.WriteLine("ID: " + Fordon.FordonsID + " Typ: " + Fordon.FordonsTyp + " Batteri Nivå:" + Fordon.BatteriStatus + " Tillgänglighet " + Fordon.FordonsStatus);
 
-
                     }
+
                 
 
 

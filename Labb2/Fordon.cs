@@ -8,10 +8,10 @@ namespace Labb2
 {
     public class Fordon
     {
-        public int FordonsID;
-        public string FordonsTyp;
-        public string BatteriStatus;
-        public bool FordonsStatus;
+        public int FordonsID { get; set; }
+        public string FordonsTyp { get; set; }
+        public string BatteriStatus { get; set; }
+        public bool FordonsStatus { get; set; }
 
         public Användare Användare;
         public Stationer Stationer;
