@@ -1,4 +1,4 @@
-﻿using Labb2;
+﻿using Models;
 
 namespace Logiclayer
 {

@@ -1,4 +1,4 @@
-﻿namespace Labb2
+﻿namespace Models
 {
     public class Admin : Användare
     {

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Labb2;
+using Models;
 using Logiclayer;
-//Logiclayer kopplas inte, 
+
 
 namespace GUI
 {

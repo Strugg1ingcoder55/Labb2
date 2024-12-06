@@ -1,4 +1,4 @@
-﻿namespace Labb2
+﻿namespace Models
 {
     class Kund : Användare
     {
