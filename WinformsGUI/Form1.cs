@@ -11,6 +11,11 @@ using Labb2;
 namespace WinformsGUI
 {
     //Av någon anledning heter den här klassen det här istället för Form1
+    //Vi är osäkra på hur vi ska lägga till våran meny till winforms, ska vi göra flera winforms?
+    //En plan är att vi börjar med en winform som har två val, avsluta och välj användare, trycker på den så kommer man till en ny winform som visar 3 knappar
+    //Knapp 1 och 2 ger dig normala kunder som gör går till samma sak fast kund 2 kan inte köpa fordon för de använder kontanter
+    //Knapp 3 går till admin då man kan göra det som finns i denna form, uppdatera, visa, lägga till och ta bort fordon
+    //Problemet är att vi vet inte hur vi skulle göra det och vi har inte tillräckligt med tid!
     public partial class btnUppdateraDataGridViewFordon : Form
     {
         private LogicService Logiclayer = new LogicService();
